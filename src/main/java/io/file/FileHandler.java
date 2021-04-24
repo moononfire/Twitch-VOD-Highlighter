@@ -1,4 +1,4 @@
-package io;
+package io.file;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -35,10 +35,6 @@ public class FileHandler {
         CLIPS_OUTPUT_NAME = CHAT_FILE_NAME + "_clips.txt";
     }
 
-    public Path getPath(String folder, String fileName) {
-        return Paths.get(folder + fileName);
-    }
-
     public Path removeAndGetPath(String folder, String fileName) throws IOException {
         Path folderPath = Paths.get(folder);
         Files.createDirectories(folderPath);
@@ -49,8 +45,8 @@ public class FileHandler {
         return Files.createFile(filePath);
     }
 
-    public Path getInputFilePath() throws IOException {
-        return getPath(INPUT_FOLDER_PATH, CHAT_FILE_NAME + ".txt");
+    public Path getInputFilePath() {
+        return Paths.get(INPUT_FOLDER_PATH + CHAT_FILE_NAME + ".txt");
     }
 
     public Path getMomentsOutputPath() throws IOException {
@@ -72,4 +68,5 @@ public class FileHandler {
     public Path getClipsOutputPath() throws IOException {
         return removeAndGetPath(OUTPUT_FOLDER_PATH, CLIPS_OUTPUT_NAME);
     }
+
 }
