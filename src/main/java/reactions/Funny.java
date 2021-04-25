@@ -1,15 +1,14 @@
 package reactions;
 
 import chat.Timeframe;
-import reactions.Reaction;
-import reactions.dictionaries.LulDictionary;
+import reactions.dictionaries.FunnyDictionary;
 import reactions.dictionaries.ReactionDictionary;
 
-public class Lul implements Reaction {
+public class Funny implements Reaction {
 
     @Override
     public ReactionDictionary getDictionary() {
-        return new LulDictionary();
+        return new FunnyDictionary();
     }
 
     @Override
@@ -43,6 +42,6 @@ public class Lul implements Reaction {
 
     @Override
     public String toString() {
-        return "reactions.Lul";
+        return "Funny";
     }
 }

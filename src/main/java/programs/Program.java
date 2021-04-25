@@ -2,14 +2,21 @@ package programs;
 
 import io.input.states.InputState;
 import programs.apps.options.ClippingOptions;
+import programs.apps.options.ReactionOptions;
+
+import java.io.IOException;
 
 public interface Program {
 
+    void run() throws IOException;
+
     void changeStage(InputState state);
 
-    void setTwitchVODId(String id);
+    void setTwitchVODId(String id) throws IOException;
 
     void setClippingOptions(ClippingOptions options);
 
-    void generateClips();
+    void setReactionOptions(ReactionOptions options);
+
+    void generateClips() throws IOException;
 }

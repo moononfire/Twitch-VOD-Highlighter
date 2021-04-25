@@ -1,12 +1,17 @@
 import programs.FirstProgram;
+import programs.HomeProgram;
+import programs.Program;
 
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        FirstProgram firstProgram = new FirstProgram();
-        firstProgram.run();
+//        FirstProgram firstProgram = new FirstProgram();
+//        firstProgram.run();
+
+        Program program = new HomeProgram();
+        program.run();
     }
 }
 //rections:

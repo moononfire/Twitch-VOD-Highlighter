@@ -2,11 +2,11 @@ package reactions.dictionaries;
 
 import java.util.*;
 
-public class PogDictionary implements ReactionDictionary {
+public class AmazingDictionary implements ReactionDictionary {
 
-    private Set<String> pogWords;
+    private Set<String> amazingWords;
 
-    public PogDictionary() {
+    public AmazingDictionary() {
         String[] pogWordsArray = new String[] {"pog", "pogchamp", "wow", "pogu", "poggies", "pogg", "shivfpschamp", "shivfps",
                 "shivfpshypers", "shivfps", "shivfpsaimbot", "shivfps", "shivfpspoggers", "shivfpslasered", "shivfpssmart",
                 "shivfps200iq", "shivfpssparkle", "shivfpskekw", "shivfpstroll", "shivfpsholypoop", "shivfps5head", "insane", "omg", "holy", "hero", "hard", "carry",
@@ -14,11 +14,11 @@ public class PogDictionary implements ReactionDictionary {
                 "coggers", "monkagiga", "squadw", "bloodtrail", "sheesh", "sheeesh", "cracked", "aimbot",
                 "kreygasm", "seemsgood", "kkomrade"};
 
-        pogWords = new HashSet<>();
-        pogWords.addAll(Arrays.asList(pogWordsArray));
+        amazingWords = new HashSet<>();
+        amazingWords.addAll(Arrays.asList(pogWordsArray));
     }
 
     public boolean contains(String word) {
-        return pogWords.contains(word.toLowerCase());
+        return amazingWords.contains(word.toLowerCase());
     }
 }

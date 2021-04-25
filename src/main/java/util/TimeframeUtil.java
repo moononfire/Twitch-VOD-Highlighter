@@ -2,10 +2,9 @@ package util;
 
 import chat.Clip;
 import chat.Timeframe;
-import reactions.Lul;
-import reactions.Pog;
+import reactions.Funny;
+import reactions.Amazing;
 import reactions.Reaction;
-import util.ReactionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +12,8 @@ import java.util.stream.Collectors;
 
 public class TimeframeUtil {
 
-    static Pog pog = new Pog();
-    static Lul lul = new Lul();
+    static Amazing amazing = new Amazing();
+    static Funny funny = new Funny();
 
     public static double calculateAverageReactions(List<Timeframe> timeframes, Reaction reaction) {
         int calculated = 0;

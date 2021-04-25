@@ -2,6 +2,7 @@ package io.input.states;
 
 import programs.Program;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FunctionInputState implements InputState {
@@ -15,16 +16,29 @@ public class FunctionInputState implements InputState {
     }
 
     @Override
-    public void getInput() {
-        System.out.println("Please type Generate to generate clips.txt,\n" +
-                "Clips to go to clips settings,\n" +
-                "Reactions to go to reaction settings");
+    public void getInput() throws IOException {
+        System.out.println("Type G to generate clips.txt,\n" +
+                "C to change clips settings,\n" +
+                "R to change reaction settings, \n" +
+                "or B to go back");
 
         String function = scanner.nextLine();
-        if (function.equals("Generate")) {
+        if (function.equals("G")) {
             System.out.println("Generating clips.txt...");
             program.generateClips();
             program.changeStage(new TwitchVodIDInputState(program));
+            System.out.println("Done!");
+        } else if (function.equals("C")){
+            System.out.println("Entering Clips settings...");
+            program.changeStage(new ClipsSettingsInputState(program));
+        } else if (function.equals("R")) {
+            System.out.println("Entering Reaction settings...");
+            program.changeStage(new ReactionSettingsInputState(program));
+        } else if (function.equals("B")){
+            System.out.println("Going back...");
+            program.changeStage(new TwitchVodIDInputState(program));
+        } else {
+            System.out.println("Incorrect input, please try again.");
         }
     }
 }

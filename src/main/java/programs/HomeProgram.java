@@ -1,9 +1,11 @@
 package programs;
 
+import io.file.FileHelper;
 import io.input.states.InputState;
 import io.input.states.TwitchVodIDInputState;
 import programs.apps.HomeApp;
 import programs.apps.options.ClippingOptions;
+import programs.apps.options.ReactionOptions;
 
 import java.io.IOException;
 
@@ -12,10 +14,12 @@ public class HomeProgram implements Program {
     HomeApp homeApp;
     InputState inputState;
     ClippingOptions clippingOptions;
+    ReactionOptions reactionOptions;
 
     public HomeProgram() {
         inputState = new TwitchVodIDInputState(this);
         clippingOptions = new ClippingOptions();
+        reactionOptions = new ReactionOptions();
     }
 
     public void run() throws IOException {
@@ -30,8 +34,8 @@ public class HomeProgram implements Program {
     }
 
     @Override
-    public void setTwitchVODId(String twitchVODId) {
-        homeApp = new HomeApp(twitchVODId);
+    public void setTwitchVODId(String twitchVODId) throws IOException {
+        homeApp = new HomeApp(FileHelper.getFilePath(twitchVODId));
     }
 
     @Override
@@ -40,7 +44,12 @@ public class HomeProgram implements Program {
     }
 
     @Override
-    public void generateClips() {
+    public void setReactionOptions(ReactionOptions options) {
+        reactionOptions = options;
+    }
+
+    @Override
+    public void generateClips() throws IOException {
         homeApp.generateClips(clippingOptions);
     }
 

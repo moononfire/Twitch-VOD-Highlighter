@@ -5,7 +5,6 @@ import chat.Timeframe;
 import reactions.Reaction;
 import reactions.dictionaries.ReactionDictionary;
 import reactions.dictionaries.ReactionDictionaryFactory;
-import util.ReactionUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;

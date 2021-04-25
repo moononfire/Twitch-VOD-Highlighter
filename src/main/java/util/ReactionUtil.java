@@ -1,8 +1,8 @@
 package util;
 
 import chat.Timeframe;
-import reactions.Lul;
-import reactions.Pog;
+import reactions.Funny;
+import reactions.Amazing;
 import reactions.Reaction;
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ public class ReactionUtil {
 
     public static List<Reaction> getAllReactions() {
         List<Reaction> all = new ArrayList<>();
-        all.add(new Pog());
-        all.add(new Lul());
+        all.add(new Amazing());
+        all.add(new Funny());
 
         return all;
     }

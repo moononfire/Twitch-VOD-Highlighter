@@ -1,15 +1,14 @@
 package reactions;
 
 import chat.Timeframe;
-import reactions.Reaction;
-import reactions.dictionaries.PogDictionary;
+import reactions.dictionaries.AmazingDictionary;
 import reactions.dictionaries.ReactionDictionary;
 
-public class Pog implements Reaction {
+public class Amazing implements Reaction {
 
     @Override
     public ReactionDictionary getDictionary() {
-        return new PogDictionary();
+        return new AmazingDictionary();
     }
 
     @Override
@@ -41,9 +40,10 @@ public class Pog implements Reaction {
         return 5;
     }
 
+
     @Override
     public String toString() {
-        return "reactions.Pog";
+        return "Amazing";
     }
 
 }
