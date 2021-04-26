@@ -9,9 +9,6 @@ public class Timeframe {
 
     private int id;
     private List<Comment> comments;
-    public boolean isFirstHalf;
-    private String streamer;
-    private String twitchVodId;
     Map<String, Integer> reactions;
 
     public Timeframe() {
@@ -22,16 +19,16 @@ public class Timeframe {
         }
     }
 
+    public Timeframe(List<Reaction> reactions) {
+        comments = new LinkedList<>();
+        this.reactions = new HashMap<>();
+        for (Reaction reaction : ReactionUtil.getAllReactions()) {
+            this.reactions.put(reaction.toString(), 0);
+        }
+    }
+
     public void addComment(Comment comment) {
         comments.add(comment);
-    }
-
-    public boolean isFirstHalf() {
-        return isFirstHalf;
-    }
-
-    public void setFirstHalf(boolean firstHalf) {
-        isFirstHalf = firstHalf;
     }
 
     public Integer getId() {
@@ -61,9 +58,14 @@ public class Timeframe {
 
     @Override
     public String toString() {
-        return "chat.Timeframe #" + id +
-                "\nPogs: " + reactions.get(Reaction.Pog().toString()) +
-                "\nLuls: " + reactions.get(Reaction.Lul().toString()) +
-                "\nComments: \n" + comments;
+        StringBuilder stringBuilder =  new StringBuilder("Timeframe #" + id + "\n");
+
+        for (Reaction reaction : ReactionUtil.getAllReactions()) {
+            stringBuilder.append("\n").append(reaction.toString()).append(": ").append(reactions.get(reaction.toString()));
+        }
+
+        stringBuilder.append("\nComments: \n").append(comments);
+
+        return stringBuilder.toString();
     }
 }

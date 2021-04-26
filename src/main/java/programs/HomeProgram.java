@@ -6,6 +6,7 @@ import io.input.states.TwitchVodIDInputState;
 import programs.apps.HomeApp;
 import programs.apps.options.ClippingOptions;
 import programs.apps.options.ReactionOptions;
+import programs.apps.options.timeframelengthoptions.TimeframeLengthOptions;
 
 import java.io.IOException;
 
@@ -50,7 +51,7 @@ public class HomeProgram implements Program {
 
     @Override
     public void generateClips() throws IOException {
-        homeApp.generateClips(clippingOptions);
+        homeApp.generateClips(clippingOptions ,reactionOptions);
     }
 
 }

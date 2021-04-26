@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class ReactionOptions {
 
-    List<Reaction> reactions;
-    Map<Reaction, Integer> minReactionsInTimeframeToAddAsClip;
-    Map<Reaction, Integer> maxReactionsToCountIn1Comment;
+    private List<Reaction> reactions;
+    private Map<Reaction, Integer> minReactionsInTimeframeToAddAsClip;
+    private Map<Reaction, Integer> maxReactionsToCountIn1Comment;
 
     public ReactionOptions() {
         reactions = ReactionUtil.getAllReactions();
@@ -29,5 +29,13 @@ public class ReactionOptions {
         reactions = ReactionUtil.getAllReactions();
         this.minReactionsInTimeframeToAddAsClip = minReactionsInTimeframeToAddAsClip;
         this.maxReactionsToCountIn1Comment = maxReactionsToCountIn1Comment;
+    }
+
+    public Map<Reaction, Integer> getMinReactionsInTimeframeToAddAsClip() {
+        return minReactionsInTimeframeToAddAsClip;
+    }
+
+    public Map<Reaction, Integer> getMaxReactionsToCountInOneComment() {
+        return maxReactionsToCountIn1Comment;
     }
 }

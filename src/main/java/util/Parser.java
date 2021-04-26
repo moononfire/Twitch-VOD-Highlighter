@@ -2,6 +2,9 @@ package util;
 
 import chat.Comment;
 import chat.Timeframe;
+import programs.apps.options.ClippingOptions;
+import programs.apps.options.ReactionOptions;
+import programs.apps.options.timeframelengthoptions.TimeframeLengthOptions;
 import reactions.Reaction;
 import reactions.dictionaries.ReactionDictionary;
 import reactions.dictionaries.ReactionDictionaryFactory;
@@ -10,49 +13,37 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 public class Parser {
 
-    public List<Timeframe> parse(Path chatFilePath) throws IOException {
-        List<Timeframe> timeframes = new ArrayList<>();
+    public Parser() {
+        TimeframeLengthOptions timeframeLengthOptions
+    }
 
-        Timeframe timeFrame = new Timeframe();
-        timeFrame.setId(1);
-        timeFrame.setFirstHalf(true);
-        timeframes.add(timeFrame);
-
+    public List<Timeframe> parse(Path chatFilePath, ClippingOptions clippingOptions, ReactionOptions reactionOptions) throws IOException {
         try (BufferedReader br = Files.newBufferedReader(chatFilePath)) {
-            String line;
+            List<Timeframe> timeframes = new ArrayList<>();
+            List<Comment> comments = new ArrayList<>();
 
+            String line;
             while ((line = br.readLine()) != null) {
-                Comment comment = parseComment(line);
-                timeFrame = determineTimeframeForComment(timeFrame, comment, timeframes);
+                comments.add(CommentUtil.parseComment(line));
+                timeframes.add(TimeframeLengthOptions.)
             }
+
+            timeFrame = determineTimeframeForComment(timeFrame, comment, timeframes);
+            Map<String, Integer> reactions = new HashMap<>();
         }
+
+
 
         for (Timeframe timeframe : timeframes) {
             countAllReactionsInTimeframe(timeframe);
         }
 
         return timeframes;
-    }
-
-    private Comment parseComment(String line) {
-        if (line.charAt(0) != '[') {
-            line = line.substring(1);
-        }
-
-        Comment comment = new Comment();
-        String[] commentValues = line.split(" ", 3);
-        comment.setTimestamp(commentValues[0].substring(1).substring(0, commentValues[0].length() - 2));
-        comment.setAuthor(commentValues[1].substring(0, commentValues[1].length() - 1));
-        comment.setComment(commentValues[2]);
-
-        return comment;
     }
 
     private Timeframe determineTimeframeForComment(Timeframe timeframe, Comment comment, List<Timeframe> timeframes) {

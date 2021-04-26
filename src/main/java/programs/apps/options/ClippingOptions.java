@@ -1,17 +1,24 @@
 package programs.apps.options;
 
+import programs.apps.options.timeframelengthoptions.TimeframeLengthOptions;
+import programs.apps.options.timeframelengthoptions.TimeframeLengthOptions30Seconds;
+
 public class ClippingOptions {
 
     int emptyTimeframesBeforeCuttingClip;
-    int timeframeLength;
+    private TimeframeLengthOptions timeframeLengthOptions;
 
     public ClippingOptions() {
         this.emptyTimeframesBeforeCuttingClip = 2;
-        this.timeframeLength = 30;
+        timeframeLengthOptions = new TimeframeLengthOptions30Seconds();
     }
 
-    public ClippingOptions(int emptyTimeframesBeforeCuttingClip, int timeframeLength) {
+    public ClippingOptions(int emptyTimeframesBeforeCuttingClip, TimeframeLengthOptions timeframeLengthOptions) {
         this.emptyTimeframesBeforeCuttingClip = emptyTimeframesBeforeCuttingClip;
-        this.timeframeLength = timeframeLength;
+        this.timeframeLengthOptions = timeframeLengthOptions;
+    }
+
+    public int getEmptyTimeframesBeforeCuttingClip() {
+        return emptyTimeframesBeforeCuttingClip;
     }
 }

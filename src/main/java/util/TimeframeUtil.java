@@ -7,6 +7,7 @@ import reactions.Amazing;
 import reactions.Reaction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -101,6 +102,10 @@ public class TimeframeUtil {
         }
 
         return clips;
+    }
+
+    public static String[] availableTimeframeLengthOptions() {
+        return new String[]{"15", "30", "60"};
     }
 
 }

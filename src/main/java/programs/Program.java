@@ -3,6 +3,7 @@ package programs;
 import io.input.states.InputState;
 import programs.apps.options.ClippingOptions;
 import programs.apps.options.ReactionOptions;
+import programs.apps.options.timeframelengthoptions.TimeframeLengthOptions;
 
 import java.io.IOException;
 

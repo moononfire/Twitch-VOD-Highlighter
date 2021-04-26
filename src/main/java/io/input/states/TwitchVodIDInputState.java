@@ -3,6 +3,7 @@ package io.input.states;
 import io.file.FileHelper;
 import programs.Program;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TwitchVodIDInputState implements InputState {
@@ -16,7 +17,7 @@ public class TwitchVodIDInputState implements InputState {
     }
 
     @Override
-    public void getInput() {
+    public void getInput() throws IOException {
         FileHelper fileHelper = new FileHelper();
 
         System.out.println("Please provide the Twitch VOD ID:");
